@@ -9,6 +9,7 @@ $username = $_POST['username'];
 $comment = $_POST['comment'];
 
 // XSS ranjivost 
+// <script>alert()</script>
 $sql = "INSERT INTO comments (username, comment) VALUES ('$username', '$comment')";
 
 if ($conn->query($sql) === TRUE) {

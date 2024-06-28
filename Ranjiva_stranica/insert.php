@@ -5,14 +5,20 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Prihvaćamo korisnički unos direktno, bez ikakve sanitizacije ili provjere
 $username = $_POST['username'];
 
-// SQL Injection ranjivost - direktno ubacivanje korisnikovog unosa
+// SQL Injection ranjivost
+// test'); DROP TABLE users; --
+// test'); DROP DATABASE test_db; --
 $sql = "INSERT INTO users (username) VALUES ('$username')";
 
 try {
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->multi_query($sql)) {
+        do {
+            if ($result = $conn->store_result()) {
+                $result->free();
+            }
+        } while ($conn->next_result());
         $message = "Novi korisnik '$username' je uspješno dodan.";
     } else {
         $message = "Došlo je do greške prilikom dodavanja korisnika: " . $conn->error;

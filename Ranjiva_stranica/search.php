@@ -7,7 +7,8 @@ if ($conn->connect_error) {
 
 $query = $_GET['query'];
 
-// SQL Injection ranjivost
+// SQL Injection ranjivost 
+// ' OR '1'='1
 $sql = "SELECT * FROM users WHERE username = '$query'";
 $result = $conn->query($sql);
 
