@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Lukina knjižnica</title>
+    <title>Online Lukina sigurna knjižnica</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>Online Lukina knjižnica</h1>
+        <h1>Online Lukina sigurna knjižnica</h1>
     </header>
     <main>
         <section class="search-section">
@@ -16,6 +16,13 @@
             <form action="search.php" method="GET">
                 <input type="text" name="query" placeholder="Unesite korisničko ime">
                 <button type="submit">Pretraži</button>
+            </form>
+        </section>
+        <section class="insert-section">
+            <h2>Unesi Novog Korisnika</h2>
+            <form action="insert.php" method="POST">
+                <input type="text" name="username" placeholder="Unesite korisničko ime">
+                <button type="submit">Unesi</button>
             </form>
         </section>
         <section class="comment-section">

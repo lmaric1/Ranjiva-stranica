@@ -22,7 +22,7 @@ $result = $conn->query($sql);
 </head>
 <body>
     <header>
-        <h1>Online Lukina knjižnica - Rezultati Pretrage</h1>
+        <h1>Online Lukina sigurna knjižnica - Rezultati Pretrage</h1>
     </header>
     <main>
         <section class="search-results">
